@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6 col-xs-offset-3">
+      <h2>Sell an amazing experience!</h2>
+      <%= simple_form_for(@experience) do |f| %>
+        <%= f.input :name, placeholder: 'Kite in Paradise!' %>
+        <%= f.input :description, placeholder: 'The Best Kite experience you ever had!' %>
+        <%= f.input :price_per_day, placeholder: '50' %>
+        <%= f.input :minimum_stay, placeholder:'5 days', label: 'minimum stay in days' %>
+        <%= f.input :photo %>
+        <%= f.input :photo_cache, as: :hidden %>
+        <%= f.button :submit %>
+
+      <% end %>
+    </div>
+  </div>
+</div>

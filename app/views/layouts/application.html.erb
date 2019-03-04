@@ -12,6 +12,9 @@
   <body>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
+    <% if params[:controller] == 'experiences' && params[:action] == 'new' %>
+      <%= render 'shared/banner_new' %>
+    <% end %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>

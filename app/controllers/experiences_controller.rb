@@ -1,6 +1,7 @@
 class ExperiencesController < ApplicationController
   def index
     @experiences = Experience.all
+    @my_experiences = Experience.where(user == current_user)
   end
 
   def new

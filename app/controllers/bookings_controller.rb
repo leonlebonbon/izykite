@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   def index
-    @bookings = Booking.all
+    @bookings = Booking.where(user: current_user)
   end
 
   def new
@@ -9,7 +9,6 @@ class BookingsController < ApplicationController
   end
 
   def create
-    raise
     @booking = Booking.new(params_booking)
     @booking.user = current_user
     @booking.experience = Experience.find(params[:experience_id])

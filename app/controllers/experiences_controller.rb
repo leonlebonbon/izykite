@@ -1,4 +1,8 @@
 class ExperiencesController < ApplicationController
+  def index
+    @experiences = Experience.all
+  end
+
   def new
     @experience = Experience.new
   end

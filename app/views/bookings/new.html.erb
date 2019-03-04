@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6 col-xs-offset-3">
+      <h2>Book an amazing experience!</h2>
+      <%= simple_form_for([@experience, @booking]) do |f| %>
+        <%= f.input :number_of_kiters, placeholder: 'How many kiters?' %>
+        <%= f.input :start_date, placeholder: 'From:' %>
+        <%= f.input :end_date, placeholder: 'To:' %>
+        <%= f.button :submit, placeholder: 'Send a request for 1500€'%>
+      <% end %>
+    </div>
+  </div>
+</div>

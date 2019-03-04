@@ -17,6 +17,10 @@ class ExperiencesController < ApplicationController
     end
   end
 
+  def show
+    @experience = Experience.find(params[:id])
+  end
+
   private
 
   def params_experience

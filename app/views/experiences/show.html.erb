@@ -1,0 +1,17 @@
+<div class="banner" style="background-image: url('<%= cl_image_path @experience.photo %>')"></div>
+
+<div class="container">
+  <h1><%= @experience.name %></h1>
+</div>
+
+<div class="container">
+  <h1><%= @experience.address %></h1>
+</div>
+
+<div class="container">
+  <p><%= @experience.description %></p>
+</div>
+
+<div class="btn btn-primary">
+  <%= link_to "Book now", new_experience_booking_path(@experience) %>
+</div>

@@ -6,3 +6,4 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 Experience.create(name: 'Kite in Groenland', address: '21rue', user_id: 1, price_per_day: 50, description: 'a beautiful kite experience')
+

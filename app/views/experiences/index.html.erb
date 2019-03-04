@@ -1,24 +1,25 @@
 <div class="container">
 <h2>Our recommendations</h2>
-<% @experiences.each do |experience| %>
-  <div class="row">
-    <div class="col-xs-12 col-sm-6 col-md-4">
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path experience.photo, crop: :fill %>');">
-        <div class="card-category">Popular</div>
-        <div class="card-description">
-          <h2><%= experience.name %></h2>
-          <p>Very cool city, the best</p>
-        </div>
-        <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-        <a class="card-link" href="#" ></a>
+<div class="row">
+  <% @experiences.each do |experience| %>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <%= link_to experience_path(experience) do %>
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path experience.photo, crop: :fill %>');">
+            <div class="card-category">Popular</div>
+            <div class="card-description">
+              <h2><%= experience.name %></h2>
+              <p><%= experience.address %></p>
+            </div>
+            <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+          </div>
+        <% end %>
       </div>
-    </div>
-  </div>
-<% end %>
+  <% end %>
+</div>
 </div>
 
 <div class="banner" style="background-image: url('<%= image_path 'greenland.jpeg' %>')">
-  <div class="banner-content">
+  <div class="banner-content text-center">
     <h2>Gagnez jusqu'à 20 000€ par mois en partageant vos expériences en kite !</h2>
     <a class="btn btn-primary btn-lg">Become Kite Master</a>
   </div>

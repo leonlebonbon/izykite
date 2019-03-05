@@ -10,6 +10,7 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
+      <%= link_to "All experiences", experiences_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "My Experiences", my_experiences_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Propose a new Kite Experience!", new_experience_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "My bookings", bookings_path, class: "navbar-wagon-item navbar-wagon-link" %>
@@ -45,6 +46,7 @@
       </div>
     <% else %>
       <!-- Login link (when logged out) -->
+      <%= link_to "All experiences", experiences_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
   </div>

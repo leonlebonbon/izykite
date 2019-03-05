@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" id="my-bookings">
 
 <h1>Your Bookings</h1>
 
@@ -11,7 +11,11 @@
   <div class="message">
     <%= cl_image_tag booking.experience.user.photo, class:'message-avatar' %>
     <div class="message-name">
-      <%= booking.experience.user.email %>
+      <% if booking.experience.user.nickname == nil  %>
+        <h3><strong>Kiter</strong></h3>
+      <% else %>
+        <h3><strong><%= booking.experience.user.nickname %></strong></h3>
+      <% end %>
       <p>10/07/17</p>
     </div>
     <div class="message-body">
@@ -31,7 +35,6 @@
       <%= link_to 'Delete', booking_path(booking), method: :delete %>
     </div>
   </div>
-
 <% end %>
 
 </div>

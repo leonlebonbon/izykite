@@ -13,13 +13,13 @@
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
     <% if params[:controller] == 'experiences' && params[:action] == 'new' %>
-      <%= render 'shared/new_banner' %>
+      <%= render 'shared/banner_new' %>
     <% end %>
     <% if params[:controller] == 'devise/registrations' && params[:action] == 'new' %>
-      <%= render 'shared/new_banner' %>
+      <%= render 'shared/banner_new' %>
     <% end %>
     <% if params[:action] == 'sign_up' %>
-      <%= render 'shared/new_banner' %>
+      <%= render 'shared/banner_new' %>
     <% end %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>

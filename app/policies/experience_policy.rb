@@ -13,8 +13,12 @@ class ExperiencePolicy < ApplicationPolicy
     true
   end
 
-  def update?
+  def edit?
     user_admin_or_logged?
+  end
+
+  def update?
+    edit?
   end
 
   def destroy?
@@ -28,6 +32,6 @@ class ExperiencePolicy < ApplicationPolicy
   private
 
   def user_admin_or_logged?
-    user.admin || record.user == user
+    user.admin || record.user == user
   end
 end

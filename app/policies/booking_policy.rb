@@ -20,6 +20,6 @@ class BookingPolicy < ApplicationPolicy
   private
 
   def user_admin_or_logged?
-    user.admin || record.user == user
+    user.admin || record.user == user
   end
 end

@@ -1,2 +1,40 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="search-banner banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path 'search_banner.jpg' %>);">
+  <div class="search-bar">
+    <h1>Search Anything ⚡️</h1>
+    <div id="custom-search-input">
+      <div class="input-group col-md-12">
+        <input type="text" class="form-control input-lg" placeholder="The kite trip I've always dreamt of..." />
+        <span class="input-group-btn">
+          <button class="btn btn-info btn-lg" type="button">
+            <i class="glyphicon glyphicon-search"></i>
+          </button>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <h2>Our recommendations</h2>
+  <div class="row">
+    <% @experiences.each do |experience| %>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <%= link_to experience_path(experience) do %>
+            <div class="card" id="card-spacing" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path experience.photo, crop: :fill %>');">
+              <div class="card-category">Popular</div>
+              <div class="card-description">
+                <h2><%= experience.name %></h2>
+                <p><%= experience.address %></p>
+              </div>
+              <%= cl_image_tag experience.user.photo, class:'card-user' %>
+            </div>
+          <% end %>
+        </div>
+    <% end %>
+  </div>
+</div>
+
+<%= render 'shared/banner_kite_master' %>
+
+
+

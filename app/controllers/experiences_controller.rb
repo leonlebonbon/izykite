@@ -43,6 +43,7 @@ class ExperiencesController < ApplicationController
     @experience = Experience.find(params[:id])
     authorize @experience
     @experience.destroy
+    redirect_to my_experiences_path
   end
 
   private

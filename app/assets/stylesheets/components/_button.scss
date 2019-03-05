@@ -4,10 +4,25 @@
   padding: 10px 15px;
   border-radius: 50px;
   font-weight: lighter;
-  opacity: 0.6;
 }
 .btn-izy:hover {
   opacity: 1;
   text-decoration: none;
   color: black;
+  opacity: 0.6;
+}
+
+.btn-izy-banner {
+  color: white;
+  border: 1px solid white;
+  padding: 10px 15px;
+  border-radius: 50px;
+  font-weight: lighter;
+}
+
+.btn-izy-banner:hover {
+  opacity: 1;
+  text-decoration: none;
+  color: white;
+  opacity: 0.6;
 }

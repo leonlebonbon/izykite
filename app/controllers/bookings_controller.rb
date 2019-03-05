@@ -1,15 +1,17 @@
 class BookingsController < ApplicationController
   def index
-    @bookings = Booking.where(user: current_user)
+    @bookings = policy_scope(Booking)
   end
 
   def new
     @experience = Experience.find(params[:experience_id])
     @booking = Booking.new
+    authorize @booking
   end
 
   def create
     @booking = Booking.new(params_booking)
+    authorize @booking
     @booking.user = current_user
     @booking.experience = Experience.find(params[:experience_id])
     if @booking.save

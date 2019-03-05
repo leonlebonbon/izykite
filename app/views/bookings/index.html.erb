@@ -9,23 +9,23 @@
 </div>
 
 <% @bookings.each do |booking| %>
-<div class="message">
-  <%= cl_image_tag booking.experience.user.photo, class:'message-avatar' %>
-  <div class="message-name">
-    <%= booking.experience.user.email %>
-    <p>10/07/17</p>
+  <div class="message">
+    <%= cl_image_tag booking.experience.user.photo, class:'message-avatar' %>
+    <div class="message-name">
+      <%= booking.experience.user.email %>
+      <p>10/07/17</p>
+    </div>
+    <div class="message-body">
+      <p><strong><%= booking.experience.name %></strong></p>
+      <p><%= booking.number_of_kiters %></p>
+      <p><%= booking.start_date %></p>
+      <p><%= booking.end_date %></p>
+    </div>
+    <div class="message-status">
+      <p class="status pending">Pending</p>
+      <p class="price">€345</p>
+    </div>
   </div>
-  <div class="message-body">
-    <p><strong><%= booking.experience.name %></strong></p>
-    <p><%= booking.number_of_kiters %></p>
-    <p><%= booking.start_date %></p>
-    <p><%= booking.end_date %></p>
-  </div>
-  <div class="message-status">
-    <p class="status pending">Pending</p>
-    <p class="price">€345</p>
-  </div>
-</div>
 
 <% end %>
 

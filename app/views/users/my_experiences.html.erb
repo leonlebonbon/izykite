@@ -1,14 +1,19 @@
 <div class="container">
   <div class="cards">
     <div class="row">
-      <div class="col-xs-12 col-sm-6 col-md-4">
-        <div class="card-my-experience">
-          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg">
-          <div class="card-my-experience-infos">
-            <h2>Product name</h2>
-            <p>Product description with <strong>relevant info</strong> only.</p>
+      <div class="col-xs-10 col-xs-offset-1">
+        <% @experiences.each do |experience| %>
+          <div class="card-my-experience">
+            <img src= <%= cl_image_path experience.photo %> >
+            <div class="my-experience-infos">
+              <h2><%= experience.name %></h2>
+              <p><%= experience.description %></p>
+              <p><italic><%= experience.address %></italic></p>
+              <p><%=  experience.price_per_day %><i class="fas fa-euro-sign"></i></p>
+                <p></p>
+              </div>
           </div>
-        </div>
+        <% end %>
       </div>
     </div>
   </div>

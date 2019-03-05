@@ -1,62 +1,55 @@
-.inbox {
-  padding: 20px;
-  list-style: none;
-  border: 1px solid rgba(220,224,244,0.4);
-  padding-top: 0px;
-  margin-top: 0px;
-}
-
 .message {
-  background-color: white;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid rgba(220,224,244,0.4);
   padding: 20px;
-  font-size: 13px;
-
-  /* Your turn to design a flexbox message */
+  border-bottom: 1px solid rgba(220,224,244,0.4);
 }
-
 .message:last-child {
   border-bottom: none;
-  /* Your turn to design a flexbox message */
 }
-
-.message-status {
-  width: 20px;
-  padding-right: 40px;
-}
-
-.message-name {
-  font-size: 13px;
-  padding-left: 20px;
-  width: 200px;
-}
-
 .message-body {
   flex-grow: 1;
+}
+.message-name {
+  padding-left: 10px;
+  min-width: 100px;
+}
+.message-name h3 {
   font-size: 13px;
+  margin-bottom: 0px;
 }
-
-.message-body strong {
-    color: rgba(0,0,0,0.9);
-  }
-
+.message-name p {
+  font-size: 13px;
+  font-weight: lighter;
+  opacity: 0.6;
+  margin-top: 5px;
+}
+.message-body {
+  padding-left: 10px;
+  font-size: 13px;
+  color: rgba(0,0,0,0.7);
+}
+.message-body {
+  padding-left: 20px;
+  color: rgba(0,0,0,0.4);
+}
+.message-body strong{
+  color: rgba(0,0,0,0.9);
+  color: rgba(0,0,0,0.9);
+}
 .message-body p {
-    color: rgb(150,150,150);
+  margin: 6px 0;
 }
-
-.status-pending {
-  color: grey;
-
+.message-status {
+  font-size: 14px;
+  font-weight: bold;
 }
-
-.status-accepted {
-  color: green;
-
+.status.accepted {
+  color: #04A366;
 }
-
-.status-denied {
+.status.declined {
   color: red;
-
+}
+.status.pending {
+  color: lightgrey;
 }

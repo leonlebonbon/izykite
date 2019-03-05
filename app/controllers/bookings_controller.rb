@@ -22,6 +22,11 @@ class BookingsController < ApplicationController
     end
   end
 
+  def my_hostings
+    @my_hostings = current_user.experiences.map { |e| e.bookings }.flatten
+    authorize @my_hostings
+  end
+
   def destroy
     @booking = Booking.find(params[:id])
     authorize @booking

@@ -17,6 +17,10 @@ class BookingPolicy < ApplicationPolicy
     user_admin_or_logged?
   end
 
+  def my_hostings?
+    true
+  end
+
   private
 
   def user_admin_or_logged?

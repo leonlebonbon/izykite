@@ -1,1 +1,33 @@
-coucou c lulu
+<div class="container" id="container-xp">
+  <div class="xp" id="xp-desc">
+    <div class="xp-content">
+      <h1>Your Profile</h1>
+      <br><br>
+      <h4> <strong>Nickname :</strong>
+        <% if @user.nickname == nil %>
+          <italic> Mysterious Kiter </italic>
+        <% else %>
+          <%= @user.nickname %>
+        <% end %>
+      </h4>
+      <br>
+      <h4> <strong>Email address :</strong> <%= @user.email %></h4>
+      <br><br><br>
+      <%= link_to "Edit Profile", edit_user_path(@user), class:'btn-izy' %>
+      <br></br>
+    </div>
+    <div class="xp-photo">
+      <% if @user.photo? %>
+        <div><%= cl_image_tag @user.photo, class:'xp-avatar' %></div>
+      <% else %>
+        <div><%= image_tag 'emptyavatar.jpg', class:'xp-avatar' %></div>
+      <% end %>
+      <div>
+          <% if @user.nickname == nil %>
+            <p>Mysterious Kiter</p>
+          <% else %>
+            <p><%= @user.nickname %></p></div>
+          <% end %>
+    </div>
+  </div>
+</div>

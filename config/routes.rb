@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   end
   resources :bookings, except: [:new, :create]
   get '/my_experiences', to: 'users#my_experiences', as: 'my_experiences'
-  resources :users, only: :show
+  resources :users, only: [:show, :edit, :update]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

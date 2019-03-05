@@ -17,10 +17,10 @@
     <% if params[:controller] == 'experiences' && params[:action] == 'new' %>
       <%= render 'shared/banner_new' %>
     <% end %>
-    <% if params[:controller] == 'devise/registrations' && params[:action] == 'new' %>
+    <% if params[:controller] == 'devise/confirmations' || params[:controller] == 'devise/passwords' || params[:controller] == 'devise/registrations' || params[:controller] == 'devise/sessions'%>
       <%= render 'shared/banner_new' %>
     <% end %>
-    <% if params[:controller] == 'devise/sessions' && params[:action] == 'new' %>
+    <% if params[:controller] == 'users' && params[:action] == 'show' %>
       <%= render 'shared/banner_new' %>
     <% end %>
     <% if params[:action] == 'sign_up' %>

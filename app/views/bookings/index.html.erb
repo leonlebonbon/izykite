@@ -1,65 +1,32 @@
+
 <div class="container">
-  <ul>
-    <% @bookings.each do |booking| %>
-      <li>
-        <%= booking.experience.name %>
-        <%= booking.experience.user.photo %>
-        <%= booking.experience.user.email %>
-        <%= booking.number_of_kiters %>
-        <%= booking.start_date %>
-        <%= booking.end_date %>
-        <%= booking.confirmed %>
-        <%= booking.total_price %>
-      </li>
-    <% end %>
-  </ul>
-</div>
 
+<h1>Your Bookings</h1>
 
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Inbox - Message design</title>
-    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css">
-    <link rel="stylesheet" href="css/style.css">
-  </head>
-
-  <body>
-
-    <div class="container">
-
-      <h1>Your messages</h1>
-
-      <div class="tabs">
+<div class="tabs">
         <a href="#" class="tab active">Traveling</a>
         <a href="#" class="tab">Hosting</a>
-      </div>
+</div>
 
-      <ul class="inbox">
-        <% @bookings.each do |booking| %>
-        <li class="message">
-          <%= cl_image_tag booking.experience.user.photo, class:'message-avatar' %>
-          <div class="message-name">
-            <p><strong> <%= booking.experience.user.email %> </strong></p>
-            <p>10.06.18</p>
-          </div>
-          <div class="message-body">
-            <p><strong><%= booking.experience.name %></strong></p>
-            <p><%= booking.number_of_kiters %></p>
-            <p><%= booking.start_date %></p>
-            <p><%= booking.end_date %></p>
-          </div>
-          <div class="message-status">
-            <p class="status-accepted"><strong>Accepted</strong></p>
-            <p class="status-accepted"><strong><%= booking.confirmed %></strong></p>
-            <p><%= booking.total_price %></p>
-          </div>
-        </li>
-        <% end %>
-      </ul>
+<% @bookings.each do |booking| %>
+<div class="message">
+  <%= cl_image_tag booking.experience.user.photo, class:'message-avatar' %>
+  <div class="message-name">
+    <%= booking.experience.user.email %>
+    <p>10/07/17</p>
+  </div>
+  <div class="message-body">
+    <p><strong><%= booking.experience.name %></strong></p>
+    <p><%= booking.number_of_kiters %></p>
+    <p><%= booking.start_date %></p>
+    <p><%= booking.end_date %></p>
+  </div>
+  <div class="message-status">
+    <p class="status pending">Pending</p>
+    <p class="price">€345</p>
+  </div>
+</div>
 
-    </div>
+<% end %>
 
-  </body>
-</html>
+</div>

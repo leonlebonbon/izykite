@@ -24,6 +24,27 @@ class ExperiencesController < ApplicationController
     authorize @experience
   end
 
+  def edit
+    @experience = Experience.find(params[:id])
+    authorize @experience
+  end
+
+  def update
+    @experience = Experience.find(params[:id])
+    authorize @experience
+    if @experience.update(params_experience)
+      redirect_to my_experiences_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @experience = Experience.find(params[:id])
+    authorize @experience
+    @experience.destroy
+  end
+
   private
 
   def params_experience

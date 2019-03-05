@@ -6,10 +6,15 @@
   margin: 0;
   text-align: center;
   color: white;
+  // padding: 0px;
 }
 .alert-info {
   background: $green;
 }
 .alert-warning {
   background: $red;
+}
+
+.notice {
+  // margin: 0px;
 }

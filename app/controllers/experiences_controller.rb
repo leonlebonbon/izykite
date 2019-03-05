@@ -1,7 +1,6 @@
 class ExperiencesController < ApplicationController
   def index
     @experiences = policy_scope(Experience)
-    @my_experiences = Experience.where(user: current_user)
   end
 
   def new

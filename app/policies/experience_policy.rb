@@ -1,7 +1,7 @@
 class ExperiencePolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.where(user: user)
+      scope.all
     end
   end
 
@@ -19,6 +19,10 @@ class ExperiencePolicy < ApplicationPolicy
 
   def destroy?
     user_admin_or_logged?
+  end
+
+  def my_experiences?
+    true
   end
 
   private

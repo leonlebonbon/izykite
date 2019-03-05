@@ -1,4 +1,3 @@
-
 <div class="container">
 
 <h1>Your Bookings</h1>
@@ -23,7 +22,8 @@
     </div>
     <div class="message-status">
       <p class="status pending">Pending</p>
-      <p class="price">€345</p>
+      <p class="price">€<%= booking.total_price %></p>
+      <%= link_to 'delete', booking_path(booking), method: :delete %>
     </div>
   </div>
 

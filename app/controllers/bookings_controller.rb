@@ -14,6 +14,7 @@ class BookingsController < ApplicationController
     authorize @booking
     @booking.user = current_user
     @booking.experience = Experience.find(params[:experience_id])
+    @booking.total_price = @booking.experience.price_per_day * @booking.number_of_kiters
     if @booking.save
       redirect_to(bookings_path)
     else
@@ -21,9 +22,16 @@ class BookingsController < ApplicationController
     end
   end
 
+  def destroy
+    @booking = Booking.find(params[:id])
+    authorize @booking
+    @booking.destroy
+    redirect_to(bookings_path)
+  end
+
   private
 
   def params_booking
-    params.require(:booking).permit(:start_date, :end_date)
+    params.require(:booking).permit(:start_date, :end_date, :number_of_kiters)
   end
 end

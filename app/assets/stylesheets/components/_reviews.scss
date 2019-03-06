@@ -1,0 +1,32 @@
+.review-info {
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    padding: 10px;
+}
+
+.review-info:last-child {
+  border-bottom: none;
+}
+
+.review-info-content {
+  margin-left: 70px;
+  .yellow-star {
+    i {
+      color: #FCAB10;
+    }
+  }
+}
+
+.experience-reviews {
+  margin-top: 15px;
+  border: 1px rgba(200, 200, 200, 0.9);
+  box-shadow: 1px 1px 2px rgba(200, 200, 200, 0.9);
+  margin-top: -40px;
+  background-color: white;
+  border-radius: 4px;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+}

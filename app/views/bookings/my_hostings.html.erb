@@ -1,6 +1,6 @@
 <div class="container" id="my-bookings">
 
-<h1>Your Bookings</h1>
+<h1>Your Hostings</h1>
 
 <div class="tabs">
         <%= link_to 'Bookings', bookings_path, class:'tab' %>
@@ -11,28 +11,22 @@
   <div class="message">
     <%= cl_image_tag booking.user.photo, class:'message-avatar' %>
     <div class="message-name">
-      <% if booking.experience.user.nickname == nil  %>
-        <h3><strong>Kiter</strong></h3>
+      <% if booking.user.nickname == nil  %>
+        <h3><strong>Unknown Kiter</strong></h3>
       <% else %>
         <h3><strong><%= booking.user.nickname %></strong></h3>
       <% end %>
       <p>10/07/17</p>
     </div>
     <div class="message-body">
-      <p><strong><%= booking.user.nickname %></strong></p>
+      <p><strong><%= booking.experience.name %></strong></p>
       <p>For <%= booking.number_of_kiters %> kiters</p>
       <p>From <%= booking.start_date %> to <%= booking.end_date %></p>
     </div>
     <div class="message-status">
-      <% if booking.confirmed == nil %>
-        <p class="status pending"> Pending </p>
-      <% elsif booking.confirmed == true %>
-        <p class="status accepted"> Accepted </p>
-      <% elsif booking.confirmed == false %>
-        <p class="status declined"> Declined </p>
-      <% end %>
       <p class="price">€<%= booking.total_price %></p>
-      <%= link_to 'Delete', booking_path(booking), method: :delete %>
+      <%= link_to 'Accept', accept_booking_path(booking) %>
+      <%= link_to 'Decline', booking_path(booking) %>
     </div>
   </div>
 <% end %>

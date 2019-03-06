@@ -1,17 +1,20 @@
-.map-layout {
+.main-container {
   display: flex;
-  align-items: stretch;
-}
-
-#map {
-  width: 400px;
-  height: 100vh;
-  top: 0px !important;
-  position: sticky !important;
-}
-
-@media(max-width: 500px) {
-  .profile-dashboard {
-    display: block;
+  #map {
+    flex: 0 0 500px;
+    height: 100vh;
+    top: 0px !important;
+    position: sticky !important;
   }
 }
+
+.experiences {
+  flex-grow: 1;
+}
+
+// @media(max-width: 500px) {
+//   .profile-dashboard {
+//     display: block;
+//   }
+// }
+

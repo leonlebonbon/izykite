@@ -6,6 +6,12 @@ class ExperiencesController < ApplicationController
     else
       @experiences = policy_scope(Experience)
     end
+    @all_experiences = @experiences.where.not(latitude: nil, longitude: nil)
+    @markers = @all_experiences.map do |experience|
+      {
+        lng: experience.longitude,
+        lat: experience.latitude
+      }
   end
 
   def new

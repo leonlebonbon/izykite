@@ -1,15 +1,17 @@
 class ExperiencesController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
   def index
-    @experiences = policy_scope(Experience)
+    if params[:query].present?
+      @experiences = policy_scope(Experience).near(params[:query], 10)
+    else
+      @experiences = policy_scope(Experience)
+    end
     @all_experiences = @experiences.where.not(latitude: nil, longitude: nil)
-
     @markers = @all_experiences.map do |experience|
       {
         lng: experience.longitude,
         lat: experience.latitude
       }
-    end
   end
 
   def new

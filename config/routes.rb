@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
+  get 'reviews/new'
+  get 'reviews/create'
   devise_for :users
   get '/', to: 'pages#home', as: 'home'
   root to: 'pages#home'
   resources :experiences do
     resources :bookings, only: [:new, :create]
+    resources :reviews, only: [:new, :create]
   end
   resources :bookings, except: [:new, :create] do
     member do

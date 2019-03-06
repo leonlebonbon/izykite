@@ -1,17 +1,19 @@
 <div class="search-banner banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path 'search_banner.jpg' %>);">
   <div class="search-bar">
-    <h1>Search Anything ⚡️</h1>
-    <div id="custom-search-input">
-      <%= form_tag experiences_path, class: 'input-group col-md-12', method: :get do %>
-        <%= text_field_tag :query,
-          params[:query],
-          class: "form-control input-lg",
-          placeholder: "The place of your dreams..."
-        %>
-        <%= button_tag(type: 'submit', class: 'btn btn-info btn-lg') do %>
-          <i class="glyphicon glyphicon-search"></i>
+    <div class="container">s
+      <h1>Search Anything ⚡️</h1>
+      <div id="custom-search-input">
+        <%= form_tag experiences_path, class: 'input-group col-md-12', method: :get do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control input-lg",
+            placeholder: "The place of your dreams..."
+          %>
+          <%= button_tag(type: 'submit', class: 'btn btn-info btn-lg') do %>
+            <i class="glyphicon glyphicon-search"></i>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
     </div>
   </div>
 </div>

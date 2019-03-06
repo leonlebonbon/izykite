@@ -28,12 +28,17 @@
                 <h2><%= experience.name %></h2>
                 <p><%= experience.address %></p>
               </div>
-              <%= cl_image_tag experience.user.photo, class:'card-user' %>
+              <% if experience.user.photo? %>
+                <%= cl_image_tag experience.user.photo, class:'card-user' %>
+              <% else %>
+                <%= image_tag 'emptyavatar.jpg', class:'card-user' %>
+              <% end %>
             </div>
           <% end %>
         </div>
     <% end %>
   </div>
+  <%= render 'shared/banner_kite_master' %>
 </div>
 
 

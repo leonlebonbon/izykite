@@ -1,0 +1,20 @@
+.main-container {
+  display: flex;
+  #map {
+    flex: 0 0 450px;
+    height: 100vh;
+    top: 0px !important;
+    position: sticky !important;
+  }
+}
+
+.experiences {
+  flex-grow: 1;
+}
+
+// @media(max-width: 500px) {
+//   .profile-dashboard {
+//     display: block;
+//   }
+// }
+

@@ -6,6 +6,13 @@ class ExperiencesController < ApplicationController
     else
       @experiences = policy_scope(Experience)
     end
+    @all_experiences = @experiences.where.not(latitude: nil, longitude: nil)
+    @markers = @all_experiences.map do |experience|
+      {
+        lng: experience.longitude,
+        lat: experience.latitude
+      }
+    end
   end
 
   def new
@@ -54,6 +61,6 @@ class ExperiencesController < ApplicationController
   private
 
   def params_experience
-    params.require(:experience).permit(:address, :photo, :price_per_day, :name, :minimum_length, :description)
+    params.require(:experience).permit(:address, :photo, :price_per_day, :name, :minimum_length, :description, :latitude, :longitude)
   end
 end

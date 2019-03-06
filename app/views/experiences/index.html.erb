@@ -1,33 +1,39 @@
 <div class="search-bar">
   <h1>Discover our experiences! ⚡️</h1>
   <div id="custom-search-input">
-    <div class="input-group col-md-12">
-      <input type="text" class="form-control input-lg" placeholder="The kite trip I've always dreamt of..." />
-      <span class="input-group-btn">
-        <button class="btn btn-info btn-lg" type="button">
+      <%= form_tag experiences_path, class: 'input-group col-md-12', method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control input-lg",
+          placeholder: "The place of your dreams..."
+        %>
+        <%= button_tag(type: 'submit', class: 'btn btn-info btn-lg') do %>
           <i class="glyphicon glyphicon-search"></i>
-        </button>
-      </span>
+        <% end %>
+      <% end %>
     </div>
-  </div>
 </div>
 
 
 <div class="container">
   <div class="row">
-    <% @experiences.each do |experience| %>
-        <div class="col-xs-12 col-sm-6 col-md-4">
-          <%= link_to experience_path(experience) do %>
-            <div class="card" id="card-spacing" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path experience.photo, crop: :fill %>');">
-              <div class="card-category">Popular</div>
-              <div class="card-description">
-                <h2><%= experience.name %></h2>
-                <p><%= experience.address %></p>
+    <% if @experiences != [] %>
+      <% @experiences.each do |experience| %>
+          <div class="col-xs-12 col-sm-6 col-md-4">
+            <%= link_to experience_path(experience) do %>
+              <div class="card" id="card-spacing" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path experience.photo, crop: :fill %>');">
+                <div class="card-category">Popular</div>
+                <div class="card-description">
+                  <h2><%= experience.name %></h2>
+                  <p><%= experience.address %></p>
+                </div>
+                <%= cl_image_tag experience.user.photo, class:'card-user' %>
               </div>
-              <%= cl_image_tag experience.user.photo, class:'card-user' %>
-            </div>
-          <% end %>
-        </div>
+            <% end %>
+          </div>
+      <% end %>
+    <% else %>
+    <h4>Sorry, we do not have this destination yet, but checkout our <%= link_to 'other amazing destinations', experiences_path %></h4>
     <% end %>
   </div>
 </div>

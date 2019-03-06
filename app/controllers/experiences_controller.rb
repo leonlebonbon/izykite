@@ -1,7 +1,11 @@
 class ExperiencesController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
   def index
-    @experiences = policy_scope(Experience)
+    if params[:query].present?
+      @experiences = policy_scope(Experience).near(params[:query], 10)
+    else
+      @experiences = policy_scope(Experience)
+    end
   end
 
   def new

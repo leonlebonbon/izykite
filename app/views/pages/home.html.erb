@@ -2,14 +2,16 @@
   <div class="search-bar">
     <h1>Search Anything ⚡️</h1>
     <div id="custom-search-input">
-      <div class="input-group col-md-12">
-        <input type="text" class="form-control input-lg" placeholder="The kite trip I've always dreamt of..." />
-        <span class="input-group-btn">
-          <button class="btn btn-info btn-lg" type="button">
-            <i class="glyphicon glyphicon-search"></i>
-          </button>
-        </span>
-      </div>
+      <%= form_tag experiences_path, class: 'input-group col-md-12', method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control input-lg",
+          placeholder: "The place of your dreams..."
+        %>
+        <%= button_tag(type: 'submit', class: 'btn btn-info btn-lg') do %>
+          <i class="glyphicon glyphicon-search"></i>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>
@@ -33,8 +35,5 @@
     <% end %>
   </div>
 </div>
-
-<%= render 'shared/banner_kite_master' %>
-
 
 

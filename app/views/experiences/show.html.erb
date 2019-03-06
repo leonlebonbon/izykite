@@ -1,25 +1,49 @@
 <div class="banner" style="background-image: url('<%= cl_image_path @experience.photo %>')"></div>
 
 <div class="container" id="container-xp">
-  <div class="xp" id="xp-desc">
-    <div class="xp-content">
-      <h1><%= @experience.name %></h1>
-      <h2><%= @experience.address %></h2>
-      <p>Description : <%= @experience.description %></p>
-      <p id="desc-padding">€ <%= @experience.price_per_day %> per day</p>
-      <%= link_to "Book now", new_experience_booking_path(@experience), class:'btn-izy' %>
-      <%= link_to "Give a review", new_experience_review_path(@experience), class:'btn-izy' %>
-      <br></br>
+  <div class="review-card xp xp-desc">
+    <div id="xp-desc">
+      <div class="xp-content">
+        <h1><%= @experience.name %></h1>
+        <h2><%= @experience.address %></h2>
+        <p>Description : <%= @experience.description %></p>
+        <p id="desc-padding">€ <%= @experience.price_per_day %> per day</p>
+        <%= link_to "Book now", new_experience_booking_path(@experience), class:'btn-izy' %>
+        <%= link_to "Give a review", new_experience_review_path(@experience), class:'btn-izy' %>
+        <br></br>
+      </div>
+      <div class="xp-photo">
+        <div><%= cl_image_tag @experience.user.photo, class:'xp-avatar' %></div>
+        <div>
+            <% if @experience.user.nickname == nil %>
+              <p>Mysterious Kiter</p>
+            <% else %>
+              <p><%= @experience.user.nickname %></p></div>
+            <% end %>
+        <div><%= link_to 'Send message' %></div>
+      </div>
     </div>
-    <div class="xp-photo">
-      <div><%= cl_image_tag @experience.user.photo, class:'xp-avatar' %></div>
-      <div>
-          <% if @experience.user.nickname == nil %>
-            <p>Mysterious Kiter</p>
-          <% else %>
-            <p><%= @experience.user.nickname %></p></div>
-          <% end %>
-      <div><%= link_to 'Send message' %></div>
-    </div>
+    <br><br>
+      <div class="experience-reviews">
+        <% @reviews.each do |review| %>
+          <div class="review-info">
+            <span class="review-user-info">
+              <%= cl_image_tag review.user.photo, class: 'message-avatar' %>
+              <p class="review-user"><%= review.user.nickname %></p>
+            </span>
+            <span class="review-info-content">
+              <span class="yellow-star">
+                <% review.rating.times do %>
+                  <i class="fas fa-star"></i>
+              <% end %>
+              </span>
+              <% (5 - review.rating).times do %>
+                <i class="fas fa-star"></i>
+              <% end %>
+              <p class="review-content"><%= review.content %></p>
+            </span>
+          </div>
+        <% end %>
+      </div>
   </div>
 </div>

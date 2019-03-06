@@ -40,7 +40,7 @@ class BookingsController < ApplicationController
     authorize @booking
     @booking.confirmed = false
     @booking.save
-    my_hostings_path
+    redirect_to my_hostings_path
   end
 
   def destroy

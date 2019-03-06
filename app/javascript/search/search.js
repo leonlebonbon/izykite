@@ -1,30 +1,17 @@
-const search = document.querySelector("#search");
-const results = document.querySelector("#results");
+const list = document.querySelectorAll('.card');
 
-const insertHTML = (word) => {
-  results.insertAdjacentHTML("beforeend", `<li>${word}</li>`);
+const insertMovies = (data) => {
+  data.Search.forEach((result) => {
+    const movie = `<li>
+      <img src="${result.Poster}" alt="" />
+      <p>${result.Title}</p>
+    </li>`;
+    list.insertAdjacentHTML('beforeend', movie);
+  });
 };
 
-const displayData = (data) => {
-  results.innerHTML = "";
-  if (data.words) {
-    data.words.forEach((word) => {
-      insertHTML(word);
-    });
-  }
-};
-
-const callApi = (event) => {
-  const userInput = event.currentTarget.value;
-  const apiurl = `https://wagon-dictionary.herokuapp.com/autocomplete/${userInput}`;
-  fetch(apiurl)
+const fetchMovies = (query) => {
+  fetch(`http://www.omdbapi.com/?s=${query}&apikey=adf1f2d7`)
     .then(response => response.json())
-    .then((data) => {
-      displayData(data);
-    });
+    .then(insertMovies);
 };
-
-search.addEventListener("keyup", (event) => {
-  callApi(event);
-});
-

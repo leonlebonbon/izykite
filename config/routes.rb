@@ -5,7 +5,13 @@ Rails.application.routes.draw do
   resources :experiences do
     resources :bookings, only: [:new, :create]
   end
-  resources :bookings, except: [:new, :create]
+  resources :bookings, except: [:new, :create] do
+    member do
+      # bookings/id/accept
+      get 'accept', to: 'bookings#accept'
+      # bookings/id/decline
+    end
+  end
   get '/my_experiences', to: 'users#my_experiences', as: 'my_experiences'
   get '/my_hostings', to: 'bookings#my_hostings', as: 'my_hostings'
   resources :users, only: [:show, :edit, :update]

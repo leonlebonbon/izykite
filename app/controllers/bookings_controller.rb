@@ -24,7 +24,23 @@ class BookingsController < ApplicationController
 
   def my_hostings
     @my_hostings = current_user.experiences.map { |e| e.bookings }.flatten
-    authorize @my_hostings
+    authorize :booking, :create?
+  end
+
+  def accept
+    @booking = Booking.find(params[:id])
+    authorize @booking
+    @booking.confirmed = true
+    @booking.save
+    redirect_to my_hostings_path
+  end
+
+  def decline
+    @booking = Booking.find(params[:id])
+    authorize @booking
+    @booking.confirmed = false
+    @booking.save
+    my_hostings_path
   end
 
   def destroy

@@ -21,6 +21,14 @@ class BookingPolicy < ApplicationPolicy
     true
   end
 
+  def accept?
+    record.experience.user == user
+  end
+
+  def decline?
+    record.experience.user == user
+  end
+
   private
 
   def user_admin_or_logged?

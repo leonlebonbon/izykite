@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       # bookings/id/accept
       get 'accept', to: 'bookings#accept'
       # bookings/id/decline
+      get 'decline', to: 'bookings#decline'
     end
   end
   get '/my_experiences', to: 'users#my_experiences', as: 'my_experiences'

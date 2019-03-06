@@ -7,7 +7,10 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(params_review)
+    @review.experience = Experience.find(params[:experience_id])
+    @review.user = current_user
     authorize @review
+    redirect_to experience_path(@review.experience)
   end
 
   private

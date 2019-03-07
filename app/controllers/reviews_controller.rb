@@ -21,7 +21,7 @@ class ReviewsController < ApplicationController
     @review = Review.find(params[:id])
     authorize @review
     @review.destroy
-    redirect_to experience_path(@experience)
+    redirect_to experience_path(@review.booking.experience)
   end
 
   private

@@ -41,6 +41,10 @@ class ExperiencesController < ApplicationController
         @reviews << review
       end
     end
+    @markers = [{
+      lng: @experience.longitude,
+      lat: @experience.latitude
+    }]
   end
 
   def edit

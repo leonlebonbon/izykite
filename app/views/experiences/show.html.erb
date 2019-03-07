@@ -8,6 +8,9 @@
         <h2><%= @experience.address %></h2>
         <p>Description : <%= @experience.description %></p>
         <p id="desc-padding">€ <%= @experience.price_per_day %> per day</p>
+        <% if  @experience.minimum_stay != nil %>
+          <p id="desc-padding"> Minimum stay: <%= @experience.minimum_stay %> days</p>
+        <% end %>
         <%= link_to "Book now", new_experience_booking_path(@experience), class:'btn-izy' %>
         <% if @user_booking != nil && @user_booking.end_date < Time.now %>
           <%= link_to "Give a review", new_experience_review_path(@experience), class:'btn-izy' %>

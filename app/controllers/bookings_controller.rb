@@ -13,11 +13,13 @@ class BookingsController < ApplicationController
     @booking = Booking.new(params_booking)
     authorize @booking
     @booking.user = current_user
-    @booking.experience = Experience.find(params[:experience_id])
+    @experience = Experience.find(params[:experience_id])
+    @booking.experience = @experience
     @booking.total_price = @booking.experience.price_per_day * @booking.number_of_kiters
     if @booking.save
       redirect_to(bookings_path)
     else
+      # raise
       render :new
     end
   end

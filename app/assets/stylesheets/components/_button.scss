@@ -6,9 +6,23 @@
   font-weight: lighter;
 }
 .btn-izy:hover {
-  opacity: 1;
   text-decoration: none;
   color: $brand-primary;
+  opacity: 0.6;
+}
+
+.btn-izy-booking {
+  color: $brand-warning;
+  border: 1px solid $brand-warning;
+  padding: 5px 10px;
+  border-radius: 50px;
+  font-weight: lighter;
+  font-size: 12px;
+}
+
+.btn-izy-booking:hover {
+  color: $brand-warning;
+  text-decoration: none;
   opacity: 0.6;
 }
 

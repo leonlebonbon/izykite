@@ -4,10 +4,10 @@
   <div class="review-card xp xp-desc">
     <div id="xp-desc">
       <div class="xp-content">
-        <h1><%= @experience.name %></h1>
-        <h2><%= @experience.address %></h2>
-        <p>Description : <%= @experience.description %></p>
-        <p id="desc-padding">€ <%= @experience.price_per_day %> per day</p>
+        <h1><strong><%= @experience.name %></strong></h2>
+        <h4><%= @experience.address %></h4>
+        <p><%= @experience.description %></p>
+        <p id="desc-padding">Price - € <%= @experience.price_per_day %> per kiter </p>
         <% if  @experience.minimum_stay != nil %>
           <p id="desc-padding"> Minimum stay: <%= @experience.minimum_stay %> days</p>
         <% end %>
@@ -24,11 +24,13 @@
         <% end %>
         <div>
             <% if @experience.user.nickname == nil %>
+              <p><strong>Posted by:</strong></p>
               <p>Mysterious Kiter</p>
             <% else %>
+              <p><strong>Posted by:</strong></p>
               <p><%= @experience.user.nickname.capitalize %></p></div>
             <% end %>
-        <div><%= link_to 'Send message' %></div>
+        <div><%= link_to 'Send message', bookings_path, class:'btn-izy-booking' %></div>
       </div>
     </div>
     <br><br>

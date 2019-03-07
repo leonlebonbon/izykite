@@ -31,7 +31,7 @@
                 <p><%= experience.address %></p>
               </div>
               <% if experience.user.photo? %>
-                <%= cl_image_tag experience.user.photo, class:'card-user' %>
+                <%= cl_image_tag experience.user.photo, class:'card-user', :transformation=>[ {:width=>400, :height=>400, :gravity=>"face", :radius=>"max", :crop=>"fill"}, {:width=>200, :crop=>"scale"} ] %>
               <% else %>
                 <%= image_tag 'emptyavatar.jpg', class:'card-user' %>
               <% end %>

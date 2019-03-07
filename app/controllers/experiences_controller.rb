@@ -10,7 +10,7 @@ class ExperiencesController < ApplicationController
     @markers = @all_experiences.map do |experience|
       {
         lng: experience.longitude,
-        lat: experience.latitude
+        lat: experience.latitude,
       }
     end
   end

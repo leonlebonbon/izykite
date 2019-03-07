@@ -13,7 +13,11 @@
         <br></br>
       </div>
       <div class="xp-photo">
-        <div><%= cl_image_tag @experience.user.photo, class:'xp-avatar' %></div>
+        <% if @experience.user.photo? %>
+          <%= cl_image_tag @experience.user.photo, class:'xp-avatar' %>
+        <% else %>
+            <%= image_tag 'emptyavatar.jpg', class:'xp-avatar' %>
+        <% end %>
         <div>
             <% if @experience.user.nickname == nil %>
               <p>Mysterious Kiter</p>
@@ -28,7 +32,12 @@
         <% @reviews.each do |review| %>
           <div class="review-info">
             <span class="review-user-info">
-              <%= cl_image_tag review.user.photo, class: 'message-avatar' %>
+              <% if @experience.user.photo? %>
+                <%= cl_image_tag review.user.photo, class: 'message-avatar' %>
+              <% else %>
+                <%= image_tag 'emptyavatar.jpg', class:'message-avatar' %>
+              <% end %>
+
               <p class="review-user"><%= review.user.nickname %></p>
             </span>
             <span class="review-info-content">

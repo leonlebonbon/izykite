@@ -19,4 +19,5 @@ Rails.application.routes.draw do
   get '/my_experiences', to: 'users#my_experiences', as: 'my_experiences'
   get '/my_hostings', to: 'bookings#my_hostings', as: 'my_hostings'
   resources :users, only: [:show, :edit, :update]
+  resources :reviews, only: :destroy
 end

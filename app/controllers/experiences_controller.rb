@@ -34,7 +34,13 @@ class ExperiencesController < ApplicationController
   def show
     @experience = Experience.find(params[:id])
     authorize @experience
-    @reviews = @experience.reviews
+    @user_booking = @experience.bookings.find_by(user: current_user)
+    @reviews = []
+    @experience.bookings.each do |booking|
+      booking.reviews.each do |review|
+        @reviews << review
+      end
+    end
   end
 
   def edit

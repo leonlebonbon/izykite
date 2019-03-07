@@ -7,11 +7,12 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(params_review)
-    @review.experience = Experience.find(params[:experience_id])
-    @review.user = current_user
+    experience = Experience.find(params[:experience_id])
+    @review.booking = experience.bookings.find_by(user_id: current_user.id)
+    raise
     @review.save
     authorize @review
-    redirect_to experience_path(@review.experience)
+    redirect_to experience_path(experience)
   end
 
   private

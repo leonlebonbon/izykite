@@ -20,7 +20,7 @@
           <% else %>
             <h3><strong><%= booking.experience.user.nickname %></strong></h3>
           <% end %>
-          <p><%= booking.created_at %></p>
+          <p><%= booking.created_at.strftime('%m/%d/%Y') %></p>
         </div>
         <div class="message-body">
           <p><strong><%= link_to booking.experience.name, experience_path(booking.experience) %></strong></p>

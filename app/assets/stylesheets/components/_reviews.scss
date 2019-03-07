@@ -1,25 +1,53 @@
 .review-info {
     display: flex;
+    align-items: center;
     /* justify-content: space-between; */
     align-items: center;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     padding: 10px;
 }
 
 .review-info:last-child {
+  margin-bottom: none;
   border-bottom: none;
 }
 
-.review-info-content {
-  margin-left: 70px;
-  .yellow-star {
-    i {
-      color: #FCAB10;
-    }
+.review-info:first-child {
+  margin-top: none;
+}
+
+.nickname-and-stars {
+  width: 150px;
+  margin-left: 20px;
+}
+
+.yellow-star {
+  i {
+    color: #FCAB10;
   }
 }
 
+i {
+    font-size: 14px;
+}
+
+.review-user-info {
+    vertical-align: middle !important;
+    display:flex;
+    align-items: center;
+  // padding: 10px;
+  // padding-right: 30px;
+  p {
+    font-size: 14px;
+    font-weight: bolder;
+    margin-top: 5px;
+    margin-bottom: 0px;
+  }
+  // border-right: solid 1px rgba(0, 0, 0, 0.1)
+}
+
 .experience-reviews {
+  padding: 10px;
   margin-top: 15px;
   border: 1px rgba(200, 200, 200, 0.9);
   box-shadow: 1px 1px 2px rgba(200, 200, 200, 0.9);
@@ -29,4 +57,17 @@
   margin-bottom: 50px;
   display: flex;
   flex-direction: column;
+}
+
+.review-content {
+  flex-grow: 1;
+  margin-bottom: 0px;
+  margin: 0px;
+  margin-right: 50px;
+  word-wrap: break-word !important;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+  font-size: 18px !important;
+  font-weight: 400 !important;
+  line-height: 1.4444444444444444em !important;
+  color: #484848 !important;
 }

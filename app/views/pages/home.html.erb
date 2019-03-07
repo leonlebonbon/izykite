@@ -6,7 +6,7 @@
         <%= form_tag experiences_path, class: 'input-group col-md-12', method: :get do %>
           <%= text_field_tag :query,
             params[:query],
-            class: "form-control input-lg",
+            class: "form-control input-lg", id:"experience_address",
             placeholder: "The place of your dreams..."
           %>
           <%= button_tag(type: 'submit', class: 'btn btn-info btn-lg') do %>

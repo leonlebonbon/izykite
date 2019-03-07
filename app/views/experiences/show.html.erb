@@ -14,7 +14,7 @@
       </div>
       <div class="xp-photo">
         <% if @experience.user.photo? %>
-          <%= cl_image_tag @experience.user.photo, class:'xp-avatar' %>
+          <%= cl_image_tag @experience.user.photo, class:'xp-avatar', :transformation=>[ {:width=>400, :height=>400, :gravity=>"face", :radius=>"max", :crop=>"fill"}, {:width=>200, :crop=>"scale"} ] %>
         <% else %>
             <%= image_tag 'emptyavatar.jpg', class:'xp-avatar' %>
         <% end %>

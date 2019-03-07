@@ -5,6 +5,18 @@
     <div id="xp-desc">
       <div class="xp-content">
         <h1><strong><%= @experience.name %></strong></h2>
+        <% if @reviews != [] %>
+          <div class="overall_rating">
+            <span class="yellow-star">
+              <% @overall_rating.times do %>
+                  <i class="fas fa-star"></i>
+              <% end %>
+            </span>
+              <% (5 - @overall_rating).times do %>
+                <i class="fas fa-star"></i>
+              <% end %>
+            </div>
+          <% end %>
         <h4 id="desc-xp"><%= @experience.address %></h4>
         <p><strong>Description:</strong></p>
         <p id="desc-xp-font-size"><%= @experience.description %></p>

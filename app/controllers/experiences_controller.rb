@@ -41,6 +41,13 @@ class ExperiencesController < ApplicationController
         @reviews << review
       end
     end
+    unless @reviews == []
+      @overall_rating = 0
+      @reviews.each do |review|
+        @overall_rating += review.rating
+      end
+      @overall_rating /= @reviews.length
+    end
     @markers = [{
       lng: @experience.longitude,
       lat: @experience.latitude

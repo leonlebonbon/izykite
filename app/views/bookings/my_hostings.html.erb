@@ -21,7 +21,7 @@
         <p>10/07/17</p>
       </div>
       <div class="message-body">
-        <p><strong><%= booking.experience.name %></strong></p>
+        <p><strong><%= link_to booking.experience.name, experience_path(booking.experience) %></strong></p>
         <p>For <%= booking.number_of_kiters %> kiters</p>
         <p>From <%= booking.start_date %> to <%= booking.end_date %></p>
       </div>

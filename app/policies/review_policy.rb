@@ -13,9 +13,13 @@ class ReviewPolicy < ApplicationPolicy
     new?
   end
 
+  def destroy?
+    user_admin_or_logged?
+  end
+
   private
 
   def user_admin_or_logged?
-    user.admin || record.user == user
+    user.admin || record.booking.user == user
   end
 end

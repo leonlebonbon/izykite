@@ -10,7 +10,10 @@ class Booking < ApplicationRecord
   def stay_longer_than_required?
     start = Date.parse(self.start_date.split(" ")[0]).mjd
     date_end = Date.parse(self.end_date).mjd
-    result = (date_end - start) >= self.experience.minimum_stay
+    result = true
+    if experience.minimum_stay != nil
+      result = (date_end - start) >= self.experience.minimum_stay
+    end
     unless (result)
       errors.add(:start_date, "Minimum stay should be #{experience.minimum_stay}")
     end

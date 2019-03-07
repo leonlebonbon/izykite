@@ -6,11 +6,12 @@
         <div class="col-xs-6 col-xs-offset-3">
            <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
             <h2>Book this amazing experience!</h2>
+            <p id="experience_price_per_day" class="hidden"><%= @experience.price_per_day %></p>
             <%= simple_form_for([@experience, @booking]) do |f| %>
-              <%= f.input :number_of_kiters, placeholder: 'How many kiters?' %>
+              <%= f.input :number_of_kiters, placeholder: 'How many kiters?', class:'counter' %>
               <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker", id: 'range_start'} %>
               <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker", id: 'range_end'} %>
-              <%= f.button :submit, "Book for", class: "btn-izy" %>
+              <%= f.button :submit, "Book", class: "btn-izy", id: "btn-submit-booking" %>
             <% end %>
           </div>
         </div>

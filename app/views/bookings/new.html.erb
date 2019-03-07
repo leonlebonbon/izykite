@@ -1,14 +1,19 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-6 col-xs-offset-3">
-       <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
-        <h2>Book this amazing experience!</h2>
-        <%= simple_form_for([@experience, @booking]) do |f| %>
-          <%= f.input :number_of_kiters, placeholder: 'How many kiters?' %>
-          <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker", id: 'range_start'} %>
-          <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker", id: 'range_end'} %>
-          <%= f.button :submit, "Book for ", class: "btn-izy" %>
-        <% end %>
+
+<div class="banner-booking" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.3)), url(<%= asset_path 'sea.jpg' %>);">
+  <div class="container" id="booking-container">
+    <div id="booking-form">
+      <div class="row">
+        <div class="col-xs-6 col-xs-offset-3">
+           <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
+            <h2>Book this amazing experience!</h2>
+            <%= simple_form_for([@experience, @booking]) do |f| %>
+              <%= f.input :number_of_kiters, placeholder: 'How many kiters?' %>
+              <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker", id: 'range_start'} %>
+              <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker", id: 'range_end'} %>
+              <%= f.button :submit, "Book for ", class: "btn-izy" %>
+            <% end %>
+          </div>
+        </div>
       </div>
     </div>
   </div>

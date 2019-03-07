@@ -9,7 +9,7 @@
         <p>Description : <%= @experience.description %></p>
         <p id="desc-padding">€ <%= @experience.price_per_day %> per day</p>
         <%= link_to "Book now", new_experience_booking_path(@experience), class:'btn-izy' %>
-        <% if @user_booking != nil && @user_booking.end_date < Time.now && @user_booking.confirmed %>
+        <% if @user_booking != nil && @user_booking.end_date < Time.now %>
           <%= link_to "Give a review", new_experience_review_path(@experience), class:'btn-izy' %>
         <% end %>
         <br></br>
@@ -53,6 +53,9 @@
                 </span>
               </span>
               <p class="review-content"><%= review.content %></p>
+              <%= link_to review_path(review), method: :delete do %>
+                <i class="fas fa-trash-alt"></i>
+              <% end %>
             </div>
           <% end %>
         </div>

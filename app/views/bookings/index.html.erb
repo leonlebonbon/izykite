@@ -9,8 +9,8 @@
     </div>
     <% @bookings.each do |booking| %>
       <div class="message">
-        <% if booking.user.photo? %>
-        <%= cl_image_tag booking.user.photo, class:'message-avatar', :transformation=>[ {:width=>400, :height=>400, :gravity=>"face", :radius=>"max", :crop=>"fill"}, {:width=>200, :crop=>"scale"} ] %>
+        <% if booking.experience.user.photo? %>
+        <%= cl_image_tag booking.experience.user.photo, class:'message-avatar', :transformation=>[ {:width=>400, :height=>400, :gravity=>"face", :radius=>"max", :crop=>"fill"}, {:width=>200, :crop=>"scale"} ] %>
       <% else %>
         <%= image_tag 'emptyavatar.jpg', class:'message-avatar', :transformation=>[ {:width=>400, :height=>400, :gravity=>"face", :radius=>"max", :crop=>"fill"}, {:width=>200, :crop=>"scale"} ] %>
       <% end %>

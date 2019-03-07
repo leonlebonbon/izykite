@@ -9,7 +9,11 @@
     </div>
     <% @bookings.each do |booking| %>
       <div class="message">
-        <%= cl_image_tag booking.experience.user.photo, class:'message-avatar', :transformation=>[ {:width=>400, :height=>400, :gravity=>"face", :radius=>"max", :crop=>"fill"}, {:width=>200, :crop=>"scale"} ] %>
+        <% if booking.user.photo? %>
+        <%= cl_image_tag booking.user.photo, class:'message-avatar', :transformation=>[ {:width=>400, :height=>400, :gravity=>"face", :radius=>"max", :crop=>"fill"}, {:width=>200, :crop=>"scale"} ] %>
+      <% else %>
+        <%= image_tag 'emptyavatar.jpg', class:'message-avatar', :transformation=>[ {:width=>400, :height=>400, :gravity=>"face", :radius=>"max", :crop=>"fill"}, {:width=>200, :crop=>"scale"} ] %>
+      <% end %>
         <div class="message-name">
           <% if booking.experience.user.nickname == nil  %>
             <h3><strong>Kiter</strong></h3>

@@ -12,7 +12,6 @@
         <% if @user_booking != nil && @user_booking.end_date < Time.now %>
           <%= link_to "Give a review", new_experience_review_path(@experience), class:'btn-izy' %>
         <% end %>
-        <br></br>
       </div>
       <div class="xp-photo">
         <% if @experience.user.photo? %>

@@ -52,7 +52,7 @@
         </div>
       </div>
     </div>
-    <% if @user_booking != nil && @user_booking.end_date < Time.now %>
+    <% if @user_booking != nil && @user_booking.end_date < Time.now && @user_booking.reviews == []%>
       <div class="experience-reviews">
         <h4>How much did you like this experience?</h4>
         <%= render 'reviews/form', experience: @experience, review: @review %>

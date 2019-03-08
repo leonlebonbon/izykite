@@ -12,6 +12,8 @@
       </h4>
       <br>
       <h4> <strong>Email address :</strong> <%= @user.email %></h4>
+      <br>
+      <h4> <strong>On line since :</strong> <%= @user.created_at.strftime('%m/%d/%Y') %></h4>
       <br><br><br>
       <%= link_to "Edit Profile", edit_user_path(@user), class:'btn-izy' %>
       <br></br>

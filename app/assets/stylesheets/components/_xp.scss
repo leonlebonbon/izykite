@@ -24,6 +24,9 @@
 
 .xp-content {
   width: 500px;
+  p {
+    font-size: 16px;
+  }
 }
 
 .xp-content h2 {
@@ -35,10 +38,17 @@
 }
 
 #desc-xp {
-  padding-bottom: 10px;
+  padding-bottom: 25px;
 }
 
 #desc-xp-font-size {
   font-size: 14px;
   padding-bottom: 20px;
+}
+
+.xp-details {
+  margin-top: 17px;
+  p {
+   font-size: 14px;
+  }
 }

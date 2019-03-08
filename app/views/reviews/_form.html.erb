@@ -1,0 +1,6 @@
+<%= simple_form_for([experience, review], remote: true) do |f| %>
+  <%= f.input :rating, placeholder: '5', label: 'rating (out of 5): ', collection: [0, 1, 2, 3, 4, 5] %>
+  <%= f.input :content, placeholder: 'The Best Kite experience I ever had!' %>
+  <%= f.button :submit, class: 'btn btn-izy' %>
+<% end %>
+

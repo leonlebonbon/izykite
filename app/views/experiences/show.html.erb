@@ -27,9 +27,6 @@
           <p id="desc-padding"><%= @experience.minimum_stay %> days</p>
         <% end %>
         <%= link_to "Book now", new_experience_booking_path(@experience), class:'btn-izy' %>
-        <% if @user_booking != nil && @user_booking.end_date < Time.now %>
-          <%= link_to "Give a review", new_experience_review_path(@experience), class:'btn-izy' %>
-        <% end %>
       </div>
       <div class="xp-photo">
         <% if @experience.user.photo? %>
@@ -54,37 +51,21 @@
         </div>
         </div>
       </div>
+    </div>
+    <% if @user_booking != nil && @user_booking.end_date < Time.now %>
+      <div class="experience-reviews">
+        <h4>How much did you like this experience?</h4>
+        <%= render 'reviews/form', experience: @experience, review: @review %>
+      </div>
+    <% end %>
     <br><br>
       <% if @reviews != [] %>
-        <div class="experience-reviews">
+        <div class="experience-reviews" id="reviews">
+          <h3>
+            <%= pluralize @reviews.size, "review" %>
+          </h3>
           <% @reviews.each do |review| %>
-            <div class="review-info">
-              <span class="review-user-info">
-                <% if review.booking.user.photo? %>
-                  <%= cl_image_tag review.booking.user.photo, class:'review-avatar', :transformation=>[ {:width=>400, :height=>400, :gravity=>"face", :radius=>"max", :crop=>"fill"}, {:width=>200, :crop=>"scale"} ] %>
-                <% else %>
-                  <%= image_tag 'emptyavatar.jpg', class:'review-avatar', :transformation=>[ {:width=>400, :height=>400, :gravity=>"face", :radius=>"max", :crop=>"fill"}, {:width=>200, :crop=>"scale"} ] %>
-                <% end %>
-                <span class="nickname-and-stars">
-                <p class="review-user"><%= review.booking.user.nickname.capitalize %></p>
-                  <p id="review-created-at"><%= review.created_at.strftime('%m/%d/%Y') %></p>
-                  <span class="yellow-star">
-                    <% review.rating.times do %>
-                      <i class="fas fa-star"></i>
-                    <% end %>
-                  </span>
-                  <% (5 - review.rating).times do %>
-                    <i class="fas fa-star"></i>
-                  <% end %>
-                </span>
-              </span>
-              <p class="review-content"><%= review.content %></p>
-              <% if  current_user == review.booking.user%>
-              <%= link_to review_path(review), method: :delete do %>
-                <i class="fas fa-trash-alt"></i>
-              <% end %>
-              <% end %>
-            </div>
+            <%= render 'reviews/show', review: review %>
           <% end %>
         </div>
       <% end %>

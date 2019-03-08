@@ -58,16 +58,18 @@
         <%= render 'reviews/form', experience: @experience, review: @review %>
       </div>
     <% end %>
-      <% if @reviews != [] %>
-        <div class="experience-reviews" id="reviews">
-          <h3>
-            <%= pluralize @reviews.size, "review" %>
-          </h3>
-          <% @reviews.each do |review| %>
-            <%= render 'reviews/show', review: review %>
-          <% end %>
+      <div id="reviews">
+      <% unless @reviews.empty? %>
+        <div class="experience-reviews">
+            <h3>
+              <%= pluralize @reviews.size, "review" %>
+            </h3>
+            <% @reviews.each do |review| %>
+              <%= render 'reviews/show', review: review %>
+            <% end %>
+        <% end %>
         </div>
-      <% end %>
+      </div>
       <div
         id="map"
         class='map-experience'

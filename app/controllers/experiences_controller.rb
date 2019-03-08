@@ -41,6 +41,7 @@ class ExperiencesController < ApplicationController
       booking.reviews.each do |review|
         @reviews << review
       end
+      @reviews.reverse
     end
     unless @reviews == []
       @overall_rating = 0

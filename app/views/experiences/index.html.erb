@@ -19,13 +19,13 @@
     <div class="row" id="cards">
       <% if @experiences != [] %>
         <% @experiences.each do |experience| %>
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
               <%= link_to experience_path(experience) do %>
                 <div class="card" id="card-spacing" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path experience.photo, crop: :fill %>');">
                   <div class="card-category">Popular</div>
                   <div class="card-description">
                     <h2><%= experience.name %></h2>
-                    <p><%= experience.address.truncate(45, separator: ' ') %></p>
+                    <p><%= experience.address.truncate(40, separator: ' ') %></p>
                   </div>
                   <% if experience.user.photo? %>
                     <%= cl_image_tag experience.user.photo, class:'card-user', :transformation=>[ {:width=>400, :height=>400, :gravity=>"face", :radius=>"max", :crop=>"fill"}, {:width=>200, :crop=>"scale"} ] %>

@@ -23,7 +23,8 @@
         <p><strong>Price:</strong></p>
         <p id="desc-padding"> € <%= @experience.price_per_day %> per kiter</p>
         <% if  @experience.minimum_stay != nil %>
-          <p id="desc-padding"> Minimum stay: <%= @experience.minimum_stay %> days</p>
+        <p><strong>Minimum stay:</strong></p>
+          <p id="desc-padding"><%= @experience.minimum_stay %> days</p>
         <% end %>
         <%= link_to "Book now", new_experience_booking_path(@experience), class:'btn-izy' %>
         <% if @user_booking != nil && @user_booking.end_date < Time.now %>
@@ -36,17 +37,23 @@
         <% else %>
             <%= image_tag 'emptyavatar.jpg', class:'xp-avatar' %>
         <% end %>
-        <div>
+        <div class="xp-details">
             <% if @experience.user.nickname == nil %>
               <p><strong>Posted by:</strong></p>
               <p>Mysterious Kiter</p>
+              <p><strong>On:</strong></p>
+              <p><%= @experience.created_at.strftime('%m/%d/%Y') %> </p>
             <% else %>
               <p><strong>Posted by:</strong></p>
-              <p><%= @experience.user.nickname.capitalize %></p></div>
+              <p><%= @experience.user.nickname.capitalize %></p>
+              <p><strong>On:</strong></p>
+              <p><%= @experience.created_at.strftime('%m/%d/%Y') %> </p>
             <% end %>
-        <div><%= link_to 'Send message', bookings_path, class:'btn-izy-booking' %></div>
+            <div><%= link_to 'Send message', new_experience_booking_path(@experience), class:'btn-izy-booking' %>
+            </div>
+        </div>
+        </div>
       </div>
-    </div>
     <br><br>
       <% if @reviews != [] %>
         <div class="experience-reviews">

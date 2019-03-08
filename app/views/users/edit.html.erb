@@ -1,3 +1,4 @@
+<%= render 'shared/banner_new' %>
 <div class="container">
   <div class="row">
     <div class="col-xs-6 col-xs-offset-3">
@@ -16,11 +17,17 @@
                         required: true,
                         autofocus: true,
                         input_html: { autocomplete: "email" }%>
-            <%= f.input :photo %>
+            <label class="btn btn-warning" value='Photo:'>
+              Add a photo
+              <span style="display:none;">
+                <%= f.input :photo, required: true, multiple: true, name: 'photo' %>
+              </span>
+            </label>
             <%= f.input :photo_cache, as: :hidden %>
+            <br><br>
           </div>
 
-          <div class="form-actions">
+          <div class="form-actions text-center">
             <%= f.button :submit, "Edit profile", class: 'btn btn-izy' %>
           </div>
         <% end %>

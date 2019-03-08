@@ -7,6 +7,7 @@
     <% end %>
     <span class="nickname-and-stars">
     <p class="review-user"><%= review.booking.user.nickname.capitalize %></p>
+    <p id="review-created-at"><%= review.created_at.strftime('%m/%d/%Y') %></p>
       <span class="yellow-star">
         <% review.rating.times do %>
           <i class="fas fa-star"></i>

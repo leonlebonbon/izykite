@@ -7,7 +7,7 @@
             <%= link_to 'Bookings', bookings_path, class:'tab active' %>
             <%= link_to 'Hosting', my_hostings_path, class:'tab' %>
     </div>
-    <% @bookings.each do |booking| %>
+    <% @bookings.reverse.each do |booking| %>
       <div class="message">
         <% if booking.experience.user.photo? %>
         <%= cl_image_tag booking.experience.user.photo, class:'message-avatar', :transformation=>[ {:width=>400, :height=>400, :gravity=>"face", :radius=>"max", :crop=>"fill"}, {:width=>200, :crop=>"scale"} ] %>

@@ -59,6 +59,7 @@
       </div>
     <% end %>
         <div id="reviews" class="experience-reviews">
+        <h3><%= pluralize @reviews.size, "review" %></h3>
         <% unless @reviews.empty? %>
               <% @reviews.each do |review| %>
                 <%= render 'reviews/show', review: review %>

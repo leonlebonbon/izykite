@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   resources :experiences do
     resources :bookings, only: [:new, :create]
-    resources :reviews, only: [:new, :create]
+    resources :reviews, only: [:create]
   end
   resources :bookings, except: [:new, :create] do
     member do

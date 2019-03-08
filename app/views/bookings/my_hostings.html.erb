@@ -30,7 +30,7 @@
         <div class="message-body">
           <p><strong><%= link_to booking.experience.name, experience_path(booking.experience) %></strong></p>
           <p>For <%= booking.number_of_kiters %> kiters</p>
-          <p>From <%= booking.start_date %> to <%= booking.end_date %></p>
+          <p>From <%= booking.start_date %></p>
         </div>
         <% if booking.confirmed == nil %>
           <div class="message-status">

@@ -1,7 +1,7 @@
 <div class="search-banner banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path 'search_banner.jpg' %>);">
   <div class="search-bar">
     <div class="container">
-      <h1>Search any destination ⚡️</h1>
+      <h1>Search any <span id="banner-typed-text"></span> spot 🏄‍♀</h1>
       <div id="custom-search-input">
         <%= form_tag experiences_path, class: 'input-group col-md-12', method: :get do %>
           <%= text_field_tag :query,

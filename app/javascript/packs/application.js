@@ -8,6 +8,7 @@ import { initMapbox } from '../plugins/init_mapbox';
 import { initAutocomplete } from "../plugins/init_autocomplete";
 import { updatePrice } from '../plugins/booking';
 import { initSweetalert } from '../plugins/init_sweetalert'
+import { loadDynamicBannerText } from '../plugins/banner';
 
 if(document.getElementById("booking_number_of_kiters")){
  updatePrice();
@@ -16,4 +17,4 @@ if(document.getElementById("booking_number_of_kiters")){
 initSweetalert();
 initAutocomplete();
 initMapbox();
-
+loadDynamicBannerText();

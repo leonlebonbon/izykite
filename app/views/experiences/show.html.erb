@@ -4,7 +4,7 @@
   <div class="review-card xp xp-desc">
     <div id="xp-desc">
       <div class="xp-content">
-        <h1><strong><%= @experience.name %></strong></h2>
+        <h1><strong><%= @experience.name %></strong></h1>
         <% if @reviews != [] %>
           <div class="overall_rating">
             <span class="yellow-star">
@@ -58,18 +58,13 @@
         <%= render 'reviews/form', experience: @experience, review: @review %>
       </div>
     <% end %>
-      <div id="reviews">
-      <% unless @reviews.empty? %>
-        <div class="experience-reviews">
-            <h3>
-              <%= pluralize @reviews.size, "review" %>
-            </h3>
-            <% @reviews.each do |review| %>
-              <%= render 'reviews/show', review: review %>
-            <% end %>
-        <% end %>
+        <div id="reviews" class="experience-reviews">
+        <% unless @reviews.empty? %>
+              <% @reviews.each do |review| %>
+                <%= render 'reviews/show', review: review %>
+              <% end %>
+          <% end %>
         </div>
-      </div>
       <div
         id="map"
         class='map-experience'

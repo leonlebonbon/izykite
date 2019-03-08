@@ -23,6 +23,25 @@
               <%= link_to experience_path(experience) do %>
                 <div class="card" id="card-spacing" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path experience.photo, crop: :fill %>');">
                   <div class="card-category">Popular</div>
+                  <div class="card-rating">
+                    <% if experience.reviews != [] %>
+                    <% overall_rating = 0 %>
+                      <% experience.reviews.each do |review| %>
+                        <% overall_rating += review.rating %>
+                      <% end %>
+                    <% overall_rating /= experience.reviews.size %>
+                      <div class="overall_rating">
+                        <span class="yellow-star">
+                          <% overall_rating.times do %>
+                              <i class="fas fa-star"></i>
+                          <% end %>
+                        </span>
+                          <% (5 - overall_rating).times do %>
+                            <i class="fas fa-star"></i>
+                          <% end %>
+                        </div>
+                      <% end %>
+                  </div>
                   <div class="card-description">
                     <h2><%= experience.name %></h2>
                     <p><%= experience.address.truncate(40, separator: ' ') %></p>

@@ -58,13 +58,15 @@
         <%= render 'reviews/form', experience: @experience, review: @review %>
       </div>
     <% end %>
-        <div id="reviews" class="experience-reviews">
+        <div class="experience-reviews">
         <h3><%= pluralize @reviews.size, "review" %></h3>
-        <% unless @reviews.empty? %>
+        <div id="reviews">
+          <% unless @reviews.empty? %>
               <% @reviews.each do |review| %>
                 <%= render 'reviews/show', review: review %>
               <% end %>
           <% end %>
+        </div>
         </div>
       <div
         id="map"

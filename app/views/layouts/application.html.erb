@@ -14,7 +14,7 @@
   <body>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
-    <% if params[:controller] == 'experiences' && params[:action] == 'new' %>
+    <% if params[:controller] == 'experiences' && (params[:action] == 'new' || params[:action] == 'edit') %>
       <%= render 'shared/banner_new' %>
     <% end %>
     <% if params[:controller] == 'devise/confirmations' || params[:controller] == 'devise/passwords' || params[:controller] == 'devise/registrations' || params[:controller] == 'devise/sessions'%>

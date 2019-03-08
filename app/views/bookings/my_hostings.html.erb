@@ -10,45 +10,49 @@
   </div>
 
   <% @my_hostings.each do |booking| %>
-    <div class="message">
-      <% if booking.user.photo? %>
-        <%= cl_image_tag booking.user.photo, class:'message-avatar', :transformation=>[ {:width=>400, :height=>400, :gravity=>"face", :radius=>"max", :crop=>"fill"}, {:width=>200, :crop=>"scale"} ] %>
-      <% else %>
-        <%= image_tag 'emptyavatar.jpg', class:'message-avatar', :transformation=>[ {:width=>400, :height=>400, :gravity=>"face", :radius=>"max", :crop=>"fill"}, {:width=>200, :crop=>"scale"} ] %>
-      <% end %>
-      <div class="message-name">
-        <% if booking.user.nickname == nil  %>
-          <h3><strong>Unknown Kiter</strong></h3>
+    <% if booking.confirmed == false %>
+      <div class="message hidden"></div>
+    <% else %>
+      <div class="message">
+        <% if booking.user.photo? %>
+          <%= cl_image_tag booking.user.photo, class:'message-avatar', :transformation=>[ {:width=>400, :height=>400, :gravity=>"face", :radius=>"max", :crop=>"fill"}, {:width=>200, :crop=>"scale"} ] %>
         <% else %>
-          <h3><strong><%= booking.user.nickname %></strong></h3>
+          <%= image_tag 'emptyavatar.jpg', class:'message-avatar', :transformation=>[ {:width=>400, :height=>400, :gravity=>"face", :radius=>"max", :crop=>"fill"}, {:width=>200, :crop=>"scale"} ] %>
         <% end %>
-        <p><%= booking.created_at.strftime('%m/%d/%Y') %></p>
+        <div class="message-name">
+          <% if booking.user.nickname == nil  %>
+            <h3><strong>Unknown Kiter</strong></h3>
+          <% else %>
+            <h3><strong><%= booking.user.nickname %></strong></h3>
+          <% end %>
+          <p><%= booking.created_at.strftime('%m/%d/%Y') %></p>
+        </div>
+        <div class="message-body">
+          <p><strong><%= link_to booking.experience.name, experience_path(booking.experience) %></strong></p>
+          <p>For <%= booking.number_of_kiters %> kiters</p>
+          <p>From <%= booking.start_date %> to <%= booking.end_date %></p>
+        </div>
+        <% if booking.confirmed == nil %>
+          <div class="message-status">
+            <p class="price">€<%= booking.total_price %></p>
+            <div><%= link_to 'Accept', accept_booking_path(booking) %></div>
+            <div><%= link_to 'Decline', decline_booking_path(booking) %></div>
+          </div>
+        <% elsif booking.confirmed == true %>
+          <div class="message-status">
+            <p class="status accepted"> Accepted </p>
+            <p class="price">€<%= booking.total_price %></p>
+            <div><%= link_to 'Decline', decline_booking_path(booking) %></div>
+          </div>
+        <% elsif booking.confirmed == false %>
+          <div class="message-status">
+            <p class="status declined"> Declined </p>
+            <p class="price">€<%= booking.total_price %></p>
+            <div><%= link_to 'Accept', accept_booking_path(booking) %></div>
+          </div>
+        <% end %>
       </div>
-      <div class="message-body">
-        <p><strong><%= link_to booking.experience.name, experience_path(booking.experience) %></strong></p>
-        <p>For <%= booking.number_of_kiters %> kiters</p>
-        <p>From <%= booking.start_date %> to <%= booking.end_date %></p>
-      </div>
-      <% if booking.confirmed == nil %>
-        <div class="message-status">
-          <p class="price">€<%= booking.total_price %></p>
-          <div><%= link_to 'Accept', accept_booking_path(booking) %></div>
-          <div><%= link_to 'Decline', decline_booking_path(booking) %></div>
-        </div>
-      <% elsif booking.confirmed == true %>
-        <div class="message-status">
-          <p class="status accepted"> Accepted </p>
-          <p class="price">€<%= booking.total_price %></p>
-          <div><%= link_to 'Decline', decline_booking_path(booking) %></div>
-        </div>
-      <% elsif booking.confirmed == false %>
-        <div class="message-status">
-          <p class="status declined"> Declined </p>
-          <p class="price">€<%= booking.total_price %></p>
-          <div><%= link_to 'Accept', accept_booking_path(booking) %></div>
-        </div>
-      <% end %>
-    </div>
+    <% end %>
   <% end %>
 
   </div>

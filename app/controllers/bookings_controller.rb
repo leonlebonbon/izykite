@@ -25,7 +25,7 @@ class BookingsController < ApplicationController
   end
 
   def my_hostings
-    @my_hostings = current_user.experiences.map { |e| e.bookings }.flatten
+    @my_hostings = current_user.experiences.map { |e| e.bookings }.flatten.reverse
     authorize :booking, :create?
   end
 

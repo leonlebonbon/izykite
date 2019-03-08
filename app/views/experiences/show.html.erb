@@ -21,7 +21,7 @@
         <p><strong>Description:</strong></p>
         <p id="desc-xp-font-size"><%= @experience.description %></p>
         <p><strong>Price:</strong></p>
-        <p id="desc-padding"> € <%= @experience.price_per_day %> per kiter</p>
+        <p id="price-xp"> € <%= @experience.price_per_day %> per kiter</p>
         <% if  @experience.minimum_stay != nil %>
         <p><strong>Minimum stay:</strong></p>
           <p id="desc-padding"><%= @experience.minimum_stay %> days</p>

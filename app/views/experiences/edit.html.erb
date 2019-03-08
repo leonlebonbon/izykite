@@ -10,9 +10,17 @@
 
           <%= f.input :price_per_day, placeholder: '50' %>
           <%= f.input :minimum_stay, placeholder:'5 days', label: 'minimum stay in days' %>
-          <%= f.input :photo %>
+          <label class="btn btn-warning" value='Photo:'>
+            Change photo
+            <span style="display:none;">
+              <%= f.input :photo, required: true, multiple: true, name: 'photo' %>
+            </span>
+          </label>
           <%= f.input :photo_cache, as: :hidden %>
-          <%= f.button :submit, class: 'btn btn-izy' %>
+          <br><br>
+          <div class="text-center">
+            <%= f.button :submit, class: 'btn btn-izy btn-centered' %>
+          </div>
         <% end %>
       </div>
     </div>

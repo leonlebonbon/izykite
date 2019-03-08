@@ -41,7 +41,6 @@ class ExperiencesController < ApplicationController
       booking.reviews.each do |review|
         @reviews << review
       end
-      @reviews.reverse
     end
     unless @reviews == []
       @overall_rating = 0
@@ -50,6 +49,7 @@ class ExperiencesController < ApplicationController
       end
       @overall_rating /= @reviews.length
     end
+    @reviews.reverse!
     @markers = [{
       lng: @experience.longitude,
       lat: @experience.latitude

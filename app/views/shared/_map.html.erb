@@ -1,0 +1,37 @@
+<%= link_to experience_path(experience) do %>
+  <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path experience.photo, crop: :fill %>');">
+    <% if experience.reviews != [] %>
+      <% overall_rating = 0 %>
+      <% experience.reviews.each do |review| %>
+      <% overall_rating += review.rating %>
+    <% end %>
+    <% overall_rating /= experience.reviews.size %>
+    <% if overall_rating >= 4 %>
+      <div class="card-category">Popular</div>
+    <% else %>
+      <div class="card-category">Discover</div>
+    <% end %>
+    <div class="card-rating">
+      <div class="overall_rating">
+        <span class="yellow-star">
+          <% overall_rating.times do %>
+              <i class="fas fa-star"></i>
+          <% end %>
+        </span>
+          <% (5 - overall_rating).times do %>
+            <i class="fas fa-star"></i>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+    <div class="card-description">
+      <h2><%= experience.name %></h2>
+      <p><%= experience.address.truncate(40, separator: ' ') %></p>
+    </div>
+    <% if experience.user.photo? %>
+      <%= cl_image_tag experience.user.photo, class:'card-user', :transformation=>[ {:width=>400, :height=>400, :gravity=>"face", :radius=>"max", :crop=>"fill"}, {:width=>200, :crop=>"scale"} ] %>
+    <% else %>
+      <%= image_tag 'emptyavatar.jpg', class:'card-user' %>
+    <% end %>
+  </div>
+<% end %>

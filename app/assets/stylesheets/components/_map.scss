@@ -4,3 +4,15 @@
   border-radius: 4px;
   margin-bottom: 50px;
 }
+
+.mapboxgl-popup {
+  width: 300px;
+  .mapboxgl-popup-content {
+    padding: 0px;
+    border-radius: 4px;
+  }
+  .mapboxgl-popup-tip {
+    opacity: 0.6;
+  }
+}
+
